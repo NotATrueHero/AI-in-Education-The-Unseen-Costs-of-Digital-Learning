@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The New York Times - The Hidden Costs of AI in Education</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;700&family=Playfair+Display:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Merriweather', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px; /* Increased from 1000px */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #e2e2e2;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 14px;
+            padding: 10px 0;
+            border-top: 1px solid #e2e2e2;
+            border-bottom: 1px solid #e2e2e2;
+            flex-wrap: wrap;
+        }
+        
+        .nav-left, .nav-right {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-left span, .nav-right span {
+            white-space: nowrap;
+            margin-bottom: 5px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: 'Libre Franklin', sans-serif;
+        }
+        
+        .date {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px; /* Increased from 36px */
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px; /* Increased from 15px */
+            max-width: 1200px;
+        }
+        
+        .subheadline {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 22px; /* Increased from 20px */
+            font-weight: 400;
+            color: #666;
+            margin-bottom: 25px; /* Increased from 20px */
+            line-height: 1.4;
+            max-width: 1000px;
+        }
+        
+        .byline {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        
+        .article-img {
+            width: 100%;
+            height: auto;
+            margin: 20px 0;
+            max-height: 600px; /* Added to control image height */
+            object-fit: cover; /* Ensures image covers area properly */
+        }
+        
+        .caption {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .article-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px; /* Increased from 30px */
+        }
+        
+        @media (min-width: 768px) {
+            .article-content {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .article-content {
+                grid-template-columns: 3fr 1fr; /* Adjusted ratio for larger screens */
+            }
+        }
+        
+        .main-content p {
+            margin-bottom: 20px;
+            font-size: 18px;
+            max-width: 800px; /* Added to maintain readable line length */
+        }
+        
+        .main-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px; /* Increased from 24px */
+            margin: 40px 0 20px; /* Increased top margin */
+        }
+        
+        .sidebar {
+            background-color: #f8f8f8;
+            padding: 25px; /* Increased from 20px */
+            border-left: 1px solid #e2e2e2;
+            align-self: start; /* Makes sidebar stick to the top */
+            position: sticky;
+            top: 20px;
+        }
+        
+        .sidebar h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px; /* Increased from 20px */
+            margin-bottom: 18px; /* Increased from 15px */
+        }
+        
+        .sidebar p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        .pullquote {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px; /* Increased from 24px */
+            line-height: 1.4;
+            color: #333;
+            padding: 30px 0; /* Increased from 20px */
+            border-top: 1px solid #e2e2e2;
+            border-bottom: 1px solid #e2e2e2;
+            margin: 40px 0; /* Increased from 30px */
+            text-align: center;
+            font-style: italic;
+            max-width: 900px; /* Added to control width */
+        }
+        
+        .chart {
+            margin: 40px 0; /* Increased from 30px */
+            padding: 25px; /* Increased from 20px */
+            background-color: #f8f8f8;
+            border: 1px solid #e2e2e2;
+        }
+        
+        .chart h3 {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 20px; /* Increased from 18px */
+            margin-bottom: 20px; /* Increased from 15px */
+        }
+        
+        .chart-content {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px; /* Increased from 20px */
+        }
+        
+        .chart-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 30%;
+        }
+        
+        .bar {
+            width: 100%;
+            background-color: #4e6d8c;
+            margin-bottom: 15px; /* Increased from 10px */
+        }
+        
+        .bar-label {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        footer {
+            margin-top: 60px; /* Increased from 50px */
+            padding: 25px 0; /* Increased from 20px */
+            border-top: 1px solid #e2e2e2;
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .headline {
+                font-size: 28px;
+            }
+            
+            .subheadline {
+                font-size: 18px;
+            }
+            
+            .main-content p {
+                font-size: 16px;
+            }
+            
+            .pullquote {
+                font-size: 20px;
+            }
+            
+            .nav {
+                justify-content: center;
+            }
+            
+            .nav-left {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+                margin-bottom: 10px;
+            }
+            
+            .nav-right {
+                justify-content: center;
+                width: 100%;
+                gap: 30px;
+                padding-top: 5px;
+                border-top: 1px solid #e2e2e2;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .mobile-menu-btn {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+            
+            .nav-left {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .nav-left.show {
+                display: flex;
+            }
+            
+            .nav-right {
+                width: 100%;
+                justify-content: space-around;
+            }
+            
+            .logo {
+                font-size: 28px;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">The New York Times</div>
+            <div class="nav">
+                <button class="mobile-menu-btn">☰ SECTIONS</button>
+                <div class="nav-left">
+                    <span>World</span>
+                    <span>U.S.</span>
+                    <span>Politics</span>
+                    <span>N.Y.</span>
+                    <span>Business</span>
+                    <span>Opinion</span>
+                    <span>Tech</span>
+                    <span>Science</span>
+                    <span>Education</span>
+                </div>
+                <div class="nav-right">
+                    <span>SUBSCRIBE</span>
+                    <span>LOG IN</span>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="date">March 14, 2025</div>
+            
+            <h1 class="headline">AI in Education: The Unseen Costs of Digital Learning</h1>
+            
+            <h2 class="subheadline">New research reveals how artificial intelligence may be eroding decision-making skills, fostering laziness, and creating privacy concerns among students</h2>
+            
+            <div class="byline">By Jaquan Perry</div>
+            
+            <img src="https://blog.tcea.org/wp-content/uploads/2024/10/Idoegram-anonymizing-student-work-blog-post-feature-image.webp" alt="Students using AI technology in a classroom" class="article-img">
+            
+            <div class="caption">Students interacting with AI technology in educational settings. Research suggests these interactions may have unintended consequences. Credit: TCEA.org</div>
+            
+            <div class="article-content">
+                <div class="main-content">
+    <p>As artificial intelligence continues to grow in both capabilities and uses, its effect on classrooms around the world will also grow. As artificial intelligence transforms classrooms around the world, a new study now suggests that the benefits these technologies bring may come with significant hidden costs: such as diminished decision-making abilities, increased laziness, and serious privacy concerns.</p>
+
+    <p>Research published in <em>Humanities & Social Sciences Communications</em>, titled <strong>"Impact of Artificial Intelligence on Human Loss in Decision Making, Laziness and Safety in Education"</strong> by Sayed Fayaz Ahmad and various members of different colleges, examined 285 university students in Pakistan and China to measure how AI technologies affect three key dimensions of learning and behavior.</p>
+
+    <p>"Accepting AI without addressing the major human concerns would be like summoning the devils," warn the researchers. Their findings paint a concerning picture of technology's unintended consequences in educational settings.</p>
+
+    <h2>The Laziness Factor</h2>
+ <div class="pullquote">
+                        "AI performs repetitive tasks in an automated manner and does not let humans memorize, use analytical mind skills, or use cognition."
+                    </div>
+
+    <p>The detail that was most surprising from the study was that nearly 69% of student laziness could be attributed to AI's use. As the technology automated tasks that once required some form of mental effort, students became increasingly dependent on digital tools rather than their own capabilities. They sought out shortcuts in their work, not building up necessary skills to complete assignments without digital tools.</p>
+
+    <p>"It leads to an addiction behavior not to use human capabilities, thus making humans lazy," the study states. Further reading clarifies, "Teachers and students who use AI technology will slowly and gradually lose interest in doing tasks themselves."</p>
+
+    <p>This effect was consistent across both countries studied, showing no significant differences between male and female students, suggesting that the phenomenon goes beyond cultural and gender boundaries.</p>
+
+    <h2>Decision-Making Decline</h2>
+
+    <p>The study found that for every unit increase in artificial intelligence use, human decision-making capabilities decreased by 0.277 units. While this impact may seem less dramatic than the laziness effect, it still raises important questions about the long-term effects of technology on cognitive development.</p>
+
+    <p>"AI limits and replaces the human role in decision-making," the researchers explain. "Human mental capabilities like intuitive analysis, critical thinking, and creative problem-solving are getting out of decision-making."</p>
+
+    <p>This erosion of decision-making skills is particularly concerning in educational contexts, where developing independent thinking is a primary goal. With AI spreading across various industries in such a short period of time, it may lead to a complete system collapse. Many argue that the American school system is already systematically flawed—less effective than other global education models. Adding AI to the mix could make the system nearly pointless. If students can cheat on every assignment, what's the purpose of school? Methods of cheating evolve, and soon, a student who barely understands the subject could be passing alongside those who genuinely put in the effort.</p>
+
+    <p>AI in education is only going to create a chain reaction of problems. From one stems another, and another. Yes, it's useful, but at what point is AI being used too much? This question isn't just for students—it's for teachers as well. Educators can use AI to generate lesson plans, slideshows, assignments, and more. AI may allow a student to cheat, but it also affects the very structure of the classroom itself.</p>
+
+    <h2>Privacy at Risk</h2>
+
+    <p>Another alarming detail from the study is that AI use led to a 0.686 unit increase in security and privacy issues. Educational institutions collect vast amounts of sensitive student data, from health records to payment information, all of which becomes vulnerable when AI systems are implemented without proper safeguards.</p>
+
+    <p>"Digital security is the most significant risk and ethical concern of using AI in education systems, where criminals hack machines and sell data for other purposes," the researchers explain.</p>
+
+    <p>The study points to incidents like the Facebook-Cambridge Analytica scandal as examples of how data collected through technology remains vulnerable to privacy breaches. Since the early 2000s, digital security has been a requirement for educational institutions, and concerns have only grown. As AI expands, it draws a bigger target for hackers. If a school relies on a single AI system for all important matters, then a hacker only needs to access that one system to obtain vast amounts of private data—compromising both faculty and students.</p>
+
+    <p>We are in a digital age where nearly everything is affected by the internet. Your actions online have consequences, just as they do in real life. Basic internet safety is crucial. For some, a hacked account could mean the end of a career. For others, it could have even more severe repercussions. If you take nothing else from this article, remember to be cautious about what information you put online. Everyone is watching, and hackers are ready to take advantage—no matter how insignificant you think you are.</p>
+
+    <h2>Finding Balance</h2>
+
+    <p>As we conclude, it's important to note that the researchers aren't suggesting we abandon AI in education. Rather, they recommend a more balanced approach that preserves human capabilities while leveraging technological benefits.</p>
+
+    <p>"AI technology has undoubtedly transformed or at least affected many fields," they acknowledge. "Its applications have been developed for the benefit of humankind."</p>
+
+    <p>The study recommends that AI designers prioritize minimizing ethical concerns, that educational institutions implement secure algorithms, and that bias in AI is reduced. Most importantly, they suggest limiting dependency on AI for decision-making to protect human cognitive abilities.</p>
+
+    <p>"Teachers and students should be given training before using AI technology," the researchers conclude, presenting the idea that proper implementation and management should be able to mitigate or completely negate many of the negative effects identified.</p>
+
+    <p>As educational institutions increasingly welcome AI technologies, this research serves as a timely reminder that innovation must be balanced with careful consideration of its impact. The challenge for educators will be to truly harness AI's benefits while protecting the very foundations of human capabilities that education has long been known to develop.</p>
+</div>
+
+                
+                <div class="sidebar">
+                    <h3>Key Findings</h3>
+                    <p><strong>Study Sample:</strong> 285 university students from Pakistan and China</p>
+                    <p><strong>Impact on Laziness:</strong> 68.9% of laziness attributed to AI use</p>
+                    <p><strong>Privacy Concerns:</strong> 68.6% of security and privacy issues linked to AI</p>
+                    <p><strong>Decision-Making:</strong> 27.7% loss in decision-making abilities due to AI</p>
+                    
+                    <h3>Recommendations</h3>
+                    <p>• Design AI to minimize ethical concerns</p>
+                    <p>• Implement secure algorithms in educational settings</p>
+                    <p>• Reduce bias in AI systems</p>
+                    <p>• Limit dependency on AI for decision-making</p>
+                    <p>• Provide proper training for teachers and students</p>
+                    
+                    <h3>Related Articles</h3>
+                    <p><a href="#">The Privacy Paradox in Digital Classrooms</a></p>
+                    <p><a href="#">Can Critical Thinking Survive in an AI World?</a></p>
+                    <p><a href="#">How Schools Balance Technology and Human Connection</a></p>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2025 The New York Times Company</p>
+            <p>North Iberville HighSchool English 2000</p>
+        </footer>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navLeft = document.querySelector('.nav-left');
+            
+            menuBtn.addEventListener('click', function() {
+                navLeft.classList.toggle('show');
+            });
+        });
+    </script>
+</body>
+</html>
