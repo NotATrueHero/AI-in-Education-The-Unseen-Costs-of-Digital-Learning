@@ -1,438 +1,1040 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The New York Times - The Hidden Costs of AI in Education</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;700&family=Playfair+Display:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI in Education: The Unseen Costs of Digital Learning | Education Week</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Source Sans Pro', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f9f9f9;
+    }
+    
+    .container {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .top-banner {
+        width: 100%;
+        height: 90px;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        max-width: 100%;
+        margin: 0 auto;
+        max-width:600px;
+    }
+    
+    .top-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    header {
+        background-color: #1a3a75;
+        padding: 10px 20px;
+    }
+    
+    .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    .logo {
+        color: white;
+        font-weight: 700;
+        font-size: 24px;
+    }
+    
+    .header-right {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .header-button {
+        background-color: #fff;
+        color: #1a3a75;
+        border: none;
+        padding: 5px 15px;
+        border-radius: 3px;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    
+    .navbar {
+        background-color: #0f2552;
+        padding: 10px 0;
+        position: relative;
+    }
+    
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        flex-wrap: wrap;
+    }
+    
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 5px;
+    }
+    
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .nav-links li a {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+    
+    .nav-links li a:hover {
+        text-decoration: underline;
+    }
+    
+    .search-bar {
+        display: flex;
+    }
+    
+    .search-input {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 3px 0 0 3px;
+        font-size: 14px;
+    }
+    
+    .search-button {
+        background-color: #00b7ff;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 0 3px 3px 0;
+        cursor: pointer;
+    }
+    
+    .content-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        gap: 30px;
+        padding: 30px 20px;
+        background-color: #fff;
+    }
+    
+    .left-sidebar, .right-sidebar {
+        position: sticky;
+        top: 20px;
+        align-self: start;
+    }
+    
+    .main-content {
+        border-left: 1px solid #eee;
+        border-right: 1px solid #eee;
+        padding: 0 30px;
+    }
+    
+    .headline {
+        font-family: 'Merriweather', serif;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+    
+    .subheadline {
+        font-size: 20px;
+        color: #666;
+        margin-bottom: 20px;
+        line-height: 1.4;
+    }
+    
+    .byline {
+        font-size: 14px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        color: #666;
+    }
+    
+    .byline-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    
+    .article-img {
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+        max-height:600px;
+    }
+    
+    .caption {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 30px;
+        font-style: italic;
+    }
+    
+    .section {
+        margin-bottom: 30px;
+    }
+    
+    .section-content {
+        padding: 10px 0;
+    }
+    
+    .section-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .section-number {
+        background-color: #1a3a75;
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+    
+    h2 {
+        font-family: 'Merriweather', serif;
+        font-size: 24px;
+        font-weight: 700;
+    }
+    
+    p {
+        margin-bottom: 20px;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    .pullquote {
+        font-family: 'Merriweather', serif;
+        font-size: 22px;
+        line-height: 1.4;
+        color: #1a3a75;
+        padding: 20px;
+        border-left: 4px solid #1a3a75;
+        margin: 30px 0;
+        font-style: italic;
+        background-color: #f5f5f5;
+    }
+    
+    .sidebar-card {
+        background-color: #fff;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .sidebar-card img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+    }
+    
+    .sidebar-card-content {
+        padding: 15px;
+    }
+    
+    .sidebar-card h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+    
+    .sidebar-card p {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 10px;
+    }
+    
+    .read-more {
+        color: #1a3a75;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        display: inline-block;
+    }
+    
+    .read-more:hover {
+        text-decoration: underline;
+    }
+    
+    .trending-section {
+        margin-bottom: 30px;
+    }
+    
+    .trending-section h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #1a3a75;
+    }
+    
+    .trending-item {
+        display: flex;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .trending-item img {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        margin-right: 10px;
+    }
+    
+    .trending-item-content h4 {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    
+    .trending-item-content p {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 0;
+    }
+    
+    .newsletter-box {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 30px;
+    }
+    
+    .newsletter-box h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
+    .newsletter-form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .newsletter-input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        margin-bottom: 10px;
+    }
+    
+    .newsletter-button {
+        background-color: #1a3a75;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 3px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    
+    .related-articles {
+        margin: 40px 0;
+        border-top: 1px solid #eee;
+        padding-top: 30px;
+    }
+    
+    .related-articles h3 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    
+    .related-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .related-article {
+        border: 1px solid #eee;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    
+    .related-article img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+    
+    .related-article-content {
+        padding: 15px;
+    }
+    
+    .related-article h4 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .related-article p {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 10px;
+    }
+    
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 30px 0;
+    }
+    
+    .tag {
+        background-color: #f0f0f0;
+        padding: 5px 10px;
+        border-radius: 3px;
+        font-size: 12px;
+        color: #666;
+        text-decoration: none;
+    }
+    
+    .tag:hover {
+        background-color: #e0e0e0;
+    }
+    
+    .author-box {
+        display: flex;
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 5px;
+        margin: 30px 0;
+    }
+    
+    .author-img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+    
+    .author-info h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .author-info p {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    .social-share {
+        display: flex;
+        gap: 10px;
+        margin: 30px 0;
+    }
+    
+    .social-button {
+        background-color: #f0f0f0;
+        color: #333;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 3px;
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+    
+    .social-button:hover {
+        background-color: #e0e0e0;
+    }
+    
+    .comments-section {
+        margin: 40px 0;
+        border-top: 1px solid #eee;
+        padding-top: 30px;
+    }
+    
+    .comments-section h3 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    
+    .comment-form {
+        margin-bottom: 30px;
+    }
+    
+    .comment-textarea {
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        font-family: 'Source Sans Pro', sans-serif;
+        resize: vertical;
+        min-height: 100px;
+    }
+    
+    .comment-button {
+        background-color: #1a3a75;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    
+    footer {
+        background-color: #1a3a75;
+        color: white;
+        padding: 40px 20px;
+    }
+    
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+    
+    .footer-column h4 {
+        margin-bottom: 20px;
+        font-size: 18px;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        padding-bottom: 10px;
+    }
+    
+    .footer-links {
+        list-style: none;
+    }
+    
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+        color: #ccc;
+        text-decoration: none;
+        font-size: 14px;
+    }
+    
+    .footer-links a:hover {
+        color: white;
+        text-decoration: underline;
+    }
+    
+    .copyright {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255,255,255,0.2);
+        margin-top: 30px;
+        font-size: 14px;
+        color: #ccc;
+    }
+    
+    @media (max-width: 1024px) {
+        .content-wrapper {
+            grid-template-columns: 1fr 2fr;
         }
         
-        body {
-            font-family: 'Merriweather', serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1400px; /* Increased from 1000px */
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            padding: 20px 0;
-            border-bottom: 1px solid #e2e2e2;
-            margin-bottom: 20px;
-        }
-        
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 32px;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 14px;
-            padding: 10px 0;
-            border-top: 1px solid #e2e2e2;
-            border-bottom: 1px solid #e2e2e2;
-            flex-wrap: wrap;
-        }
-        
-        .nav-left, .nav-right {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .nav-left span, .nav-right span {
-            white-space: nowrap;
-            margin-bottom: 5px;
-        }
-        
-        .mobile-menu-btn {
+        .left-sidebar {
             display: none;
-            background: none;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            font-family: 'Libre Franklin', sans-serif;
         }
         
-        .date {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 30px;
+        .nav-container {
+            flex-direction: column;
+        }
+        
+        .search-bar {
+            margin-top: 10px;
+            width: 100%;
+        }
+        
+        .search-input {
+            flex-grow: 1;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .content-wrapper {
+            grid-template-columns: 1fr;
+        }
+        
+        .right-sidebar {
+            display: none;
+        }
+        
+        .main-content {
+            border: none;
+            padding: 0;
         }
         
         .headline {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px; 
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            max-width: 1200px;
+            font-size: 28px;
         }
         
-        .subheadline {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 22px; 
-            font-weight: 400;
-            color: #666;
-            margin-bottom: 25px; 
-            line-height: 1.4;
-            max-width: 1000px;
-        }
-        
-        .byline {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
-        
-        .article-img {
-            width: 100%;
-            height: auto;
-            margin: 20px 0;
-            max-height: 600px;
-            object-fit: cover; 
-        }
-        
-        .caption {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-        
-        .article-content {
-            display: grid;
+        .related-grid {
             grid-template-columns: 1fr;
-            gap: 40px; 
         }
         
-        @media (min-width: 768px) {
-            .article-content {
-                grid-template-columns: 2fr 1fr;
-            }
+        .footer-content {
+            grid-template-columns: 1fr 1fr;
         }
         
-        @media (min-width: 1200px) {
-            .article-content {
-                grid-template-columns: 3fr 1fr; 
-            }
+        .menu-toggle {
+            display: block;
         }
         
-        .main-content p {
-            margin-bottom: 20px;
-            font-size: 18px;
-            max-width: 800px;
+        .nav-container {
+            flex-direction: column;
         }
         
-        .main-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px; 
-            margin: 40px 0 20px; 
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            gap: 10px;
+            margin-top: 10px;
         }
         
-        .sidebar {
-            background-color: #f8f8f8;
-            padding: 25px; 
-            border-left: 1px solid #e2e2e2;
-            align-self: start;
-            position: sticky;
-            top: 20px;
+        .nav-links.active {
+            display: flex;
         }
         
-        .sidebar h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px; 
-            margin-bottom: 18px; 
+        .search-bar {
+            margin-top: 10px;
+            width: 100%;
         }
         
-        .sidebar p {
-            font-size: 16px;
+        .search-input {
+            flex-grow: 1;
+        }
+        
+        .author-box {
+            flex-direction: column;
+        }
+        
+        .author-img {
             margin-bottom: 15px;
         }
         
-        .pullquote {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px; 
-            line-height: 1.4;
-            color: #333;
-            padding: 30px 0; 
-            border-top: 1px solid #e2e2e2;
-            border-bottom: 1px solid #e2e2e2;
-            margin: 40px 0; 
-            text-align: center;
-            font-style: italic;
-            max-width: 900px; 
+        .social-share {
+            flex-wrap: wrap;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .footer-content {
+            grid-template-columns: 1fr;
         }
         
-        .chart {
-            margin: 40px 0;
-            padding: 25px; 
-            background-color: #f8f8f8;
-            border: 1px solid #e2e2e2;
+        .top-banner {
+            height: 60px;
         }
         
-        .chart h3 {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 20px; 
-            margin-bottom: 20px; 
-        }
-        
-        .chart-content {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 25px; 
-        }
-        
-        .chart-bar {
-            display: flex;
+        .header-top {
             flex-direction: column;
-            align-items: center;
-            width: 30%;
+            gap: 10px;
         }
         
-        .bar {
+        .header-right {
             width: 100%;
-            background-color: #4e6d8c;
-            margin-bottom: 15px; 
+            justify-content: space-between;
         }
         
-        .bar-label {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 14px;
+        .header-button {
+            flex-grow: 1;
             text-align: center;
         }
-        
-        footer {
-            margin-top: 60px; 
-            padding: 25px 0; 
-            border-top: 1px solid #e2e2e2;
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 14px;
-            color: #666;
-            text-align: center;
-        }
-        
-        @media (max-width: 768px) {
-            .headline {
-                font-size: 28px;
-            }
-            
-            .subheadline {
-                font-size: 18px;
-            }
-            
-            .main-content p {
-                font-size: 16px;
-            }
-            
-            .pullquote {
-                font-size: 20px;
-            }
-            
-            .nav {
-                justify-content: center;
-            }
-            
-            .nav-left {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-                margin-bottom: 10px;
-            }
-            
-            .nav-right {
-                justify-content: center;
-                width: 100%;
-                gap: 30px;
-                padding-top: 5px;
-                border-top: 1px solid #e2e2e2;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .mobile-menu-btn {
-                display: block;
-                width: 100%;
-                text-align: center;
-                padding: 10px;
-                margin-bottom: 10px;
-            }
-            
-            .nav-left {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-            
-            .nav-left.show {
-                display: flex;
-            }
-            
-            .nav-right {
-                width: 100%;
-                justify-content: space-around;
-            }
-            
-            .logo {
-                font-size: 28px;
-            }
-            
-            .container {
-                padding: 0 15px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">The New York Times</div>
-            <div class="nav">
-                <button class="mobile-menu-btn">☰ SECTIONS</button>
-                <div class="nav-left">
-                    <span>World</span>
-                    <span>U.S.</span>
-                    <span>Politics</span>
-                    <span>N.Y.</span>
-                    <span>Business</span>
-                    <span>Opinion</span>
-                    <span>Tech</span>
-                    <span>Science</span>
-                    <span>Education</span>
-                </div>
-                <div class="nav-right">
-                    <span>SUBSCRIBE</span>
-                    <span>LOG IN</span>
+<div class="container">
+    <div class="top-banner">
+        <img src="https://medialiteracynow.org/wp-content/uploads/2023/04/mln-edweek.jpg" alt="Education Week Banner">
+    </div>
+
+    
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+                <button class="menu-toggle">☰</button>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <button class="search-button">🔍</button>
                 </div>
             </div>
-        </header>
-        
-        <main>
-            <div class="date">March 14, 2025</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Opinion</a></li>
+                <li><a href="#">Teaching</a></li>
+                <li><a href="#">Technology</a></li>
+                <li><a href="#">Leadership</a></li>
+                <li><a href="#">Policy</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Jobs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content-wrapper">
+        <div class="left-sidebar">
+            <div class="trending-section">
+                <h3>Trending</h3>
+                <div class="trending-item">
+                    <img src="https://blog.stileeducation.com/content/images/2023/01/Blog.png" alt="Teacher using laptop">
+                    <div class="trending-item-content">
+                        <h4>5 Ways Teachers Are Using ChatGPT in the Classroom</h4>
+                        <p>2 days ago</p>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <img src="https://hongkongtesol.com/sites/default/files/styles/mobile_header_800x600/public/2024-03/Using-AI-in-Feedback-and-Assessment--800x600.jpg?h=e5ff0e3f&itok=_2B4eATP" alt="Student with tablet">
+                    <div class="trending-item-content">
+                        <h4>Survey: 68% of Students Use AI for Homework Help</h4>
+                        <p>3 days ago</p>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <img src="https://assets.eweek.com/uploads/2023/12/ew_20231201-ai-policy-and-governance.png" alt="School building">
+                    <div class="trending-item-content">
+                        <h4>Districts Struggle with AI Policy Implementation</h4>
+                        <p>5 days ago</p>
+                    </div>
+                </div>
+            </div>
             
+            <div class="sidebar-card">
+                <img src="https://pinnetwork.org/wp-content/uploads/2024/07/PIN-AI-Speakers-Derek.jpg" alt="Teacher workshop">
+                <div class="sidebar-card-content">
+                    <h3>Upcoming Webinar: AI Ethics in K-12 Education</h3>
+                    <p>Join our panel of experts discussing the ethical implications of AI in schools.</p>
+                    <a href="#" class="read-more">Register Now →</a>
+                </div>
+            </div>
+            
+            <div class="newsletter-box">
+                <h3>Get Our Daily Newsletter</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" class="newsletter-input">
+                    <button class="newsletter-button">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="main-content">
             <h1 class="headline">AI in Education: The Unseen Costs of Digital Learning</h1>
             
             <h2 class="subheadline">New research reveals how artificial intelligence may be eroding decision-making skills, fostering laziness, and creating privacy concerns among students</h2>
             
-            <div class="byline">By Jaquan Perry</div>
+            <div class="byline">
+                <img src="https://codehs.com/uploads/c992f9b375ef2fd3da6f20b6b8bdb249" class="byline-img" alt="Author">
+                By Jaquan Perry • March 14, 2025
+            </div>
+            
+            <div class="social-share">
+                <button class="social-button">Share</button>
+                <button class="social-button">Tweet</button>
+                <button class="social-button">Email</button>
+                <button class="social-button">Print</button>
+            </div>
             
             <img src="https://blog.tcea.org/wp-content/uploads/2024/10/Idoegram-anonymizing-student-work-blog-post-feature-image.webp" alt="Students using AI technology in a classroom" class="article-img">
             
-            <div class="caption">Students interacting with AI technology in educational settings. Research suggests these interactions may have unintended consequences. Credit: TCEA.org</div>
+            <div class="caption">Students interacting with AI technology in educational settings. Research suggests these interactions may have unintended consequences.</div>
             
-            <div class="article-content">
-                <div class="main-content">
-    <p>As artificial intelligence continues to grow in both capabilities and uses, its effect on classrooms around the world will also grow. As artificial intelligence transforms classrooms around the world, a new study now suggests that the benefits these technologies bring may come with significant hidden costs: such as diminished decision-making abilities, increased laziness, and serious privacy concerns.</p>
-
-    <p>Research published in <em>Humanities & Social Sciences Communications</em>, titled <strong>"Impact of Artificial Intelligence on Human Loss in Decision Making, Laziness and Safety in Education"</strong> by Sayed Fayaz Ahmad and various members of different colleges, examined 285 university students in Pakistan and China to measure how AI technologies affect three key dimensions of learning and behavior.</p>
-
-    <p>"Accepting AI without addressing the major human concerns would be like summoning the devils," warn the researchers. Their findings paint a concerning picture of technology's unintended consequences in educational settings.</p>
-
-    <h2>The Laziness Factor</h2>
- <div class="pullquote">
-                        "AI performs repetitive tasks in an automated manner and does not let humans memorize, use analytical mind skills, or use cognition."
-                    </div>
-
-    <p>The detail that was most surprising from the study was that nearly 69% of student laziness could be attributed to AI's use. As the technology automated tasks that once required some form of mental effort, students became increasingly dependent on digital tools rather than their own capabilities. They sought out shortcuts in their work, not building up necessary skills to complete assignments without digital tools.</p>
-
-    <p>"It leads to an addiction behavior not to use human capabilities, thus making humans lazy," the study states. Further reading clarifies, "Teachers and students who use AI technology will slowly and gradually lose interest in doing tasks themselves."</p>
-
-    <p>This effect was consistent across both countries studied, showing no significant differences between male and female students, suggesting that the phenomenon goes beyond cultural and gender boundaries.</p>
-
-    <h2>Decision-Making Decline</h2>
-
-    <p>The study found that for every unit increase in artificial intelligence use, human decision-making capabilities decreased by 0.277 units. While this impact may seem less dramatic than the laziness effect, it still raises important questions about the long-term effects of technology on cognitive development.</p>
-
-    <p>"AI limits and replaces the human role in decision-making," the researchers explain. "Human mental capabilities like intuitive analysis, critical thinking, and creative problem-solving are getting out of decision-making."</p>
-
-    <p>This erosion of decision-making skills is particularly concerning in educational contexts, where developing independent thinking is a primary goal. With AI spreading across various industries in such a short period of time, it may lead to a complete system collapse. Many argue that the American school system is already systematically flawed—less effective than other global education models. Adding AI to the mix could make the system nearly pointless. If students can cheat on every assignment, what's the purpose of school? Methods of cheating evolve, and soon, a student who barely understands the subject could be passing alongside those who genuinely put in the effort.</p>
-
-    <p>AI in education is only going to create a chain reaction of problems. From one stems another, and another. Yes, it's useful, but at what point is AI being used too much? This question isn't just for students—it's for teachers as well. Educators can use AI to generate lesson plans, slideshows, assignments, and more. AI may allow a student to cheat, but it also affects the very structure of the classroom itself.</p>
-
-    <h2>Privacy at Risk</h2>
-
-    <p>Another alarming detail from the study is that AI use led to a 0.686 unit increase in security and privacy issues. Educational institutions collect vast amounts of sensitive student data, from health records to payment information, all of which becomes vulnerable when AI systems are implemented without proper safeguards.</p>
-
-    <p>"Digital security is the most significant risk and ethical concern of using AI in education systems, where criminals hack machines and sell data for other purposes," the researchers explain.</p>
-
-    <p>The study points to incidents like the Facebook-Cambridge Analytica scandal as examples of how data collected through technology remains vulnerable to privacy breaches. Since the early 2000s, digital security has been a requirement for educational institutions, and concerns have only grown. As AI expands, it draws a bigger target for hackers. If a school relies on a single AI system for all important matters, then a hacker only needs to access that one system to obtain vast amounts of private data—compromising both faculty and students.</p>
-
-    <p>We are in a digital age where nearly everything is affected by the internet. Your actions online have consequences, just as they do in real life. Basic internet safety is crucial. For some, a hacked account could mean the end of a career. For others, it could have even more severe repercussions. If you take nothing else from this article, remember to be cautious about what information you put online. Everyone is watching, and hackers are ready to take advantage—no matter how insignificant you think you are.</p>
-
-    <h2>Finding Balance</h2>
-
-    <p>As we conclude, it's important to note that the researchers aren't suggesting we abandon AI in education. Rather, they recommend a more balanced approach that preserves human capabilities while leveraging technological benefits.</p>
-
-    <p>"AI technology has undoubtedly transformed or at least affected many fields," they acknowledge. "Its applications have been developed for the benefit of humankind."</p>
-
-    <p>The study recommends that AI designers prioritize minimizing ethical concerns, that educational institutions implement secure algorithms, and that bias in AI is reduced. Most importantly, they suggest limiting dependency on AI for decision-making to protect human cognitive abilities.</p>
-
-    <p>"Teachers and students should be given training before using AI technology," the researchers conclude, presenting the idea that proper implementation and management should be able to mitigate or completely negate many of the negative effects identified.</p>
-
-    <p>As educational institutions increasingly welcome AI technologies, this research serves as a timely reminder that innovation must be balanced with careful consideration of its impact. The challenge for educators will be to truly harness AI's benefits while protecting the very foundations of human capabilities that education has long been known to develop.</p>
-</div>
-
-                
-                <div class="sidebar">
-                    <h3>Key Findings</h3>
-                    <p><strong>Study Sample:</strong> 285 university students from Pakistan and China</p>
-                    <p><strong>Impact on Laziness:</strong> 68.9% of laziness attributed to AI use</p>
-                    <p><strong>Privacy Concerns:</strong> 68.6% of security and privacy issues linked to AI</p>
-                    <p><strong>Decision-Making:</strong> 27.7% loss in decision-making abilities due to AI</p>
+            <div class="section">
+                <div class="section-content">
+                    <p>As artificial intelligence continues to grow in both capabilities and uses, its effect on classrooms around the world will also grow. As artificial intelligence transforms classrooms around the world, a new study now suggests that the benefits these technologies bring may come with significant hidden costs: such as diminished decision-making abilities, increased laziness, and serious privacy concerns.</p>
                     
-                    <h3>Recommendations</h3>
-                    <p>• Design AI to minimize ethical concerns</p>
-                    <p>• Implement secure algorithms in educational settings</p>
-                    <p>• Reduce bias in AI systems</p>
-                    <p>• Limit dependency on AI for decision-making</p>
-                    <p>• Provide proper training for teachers and students</p>
+                    <p>Research published in <i>Humanities & Social Sciences Communications</i>, titled "Impact of Artificial Intelligence on Human Loss in Decision Making, Laziness and Safety in Education" by Sayed Fayaz Ahmad and various members of different colleges, examined 285 university students in Pakistan and China to measure how AI technologies affect three key dimensions of learning and behavior.</p>
                     
-                    <h3>Related Articles</h3>
-                    <p><a href="#">The Privacy Paradox in Digital Classrooms</a></p>
-                    <p><a href="#">Can Critical Thinking Survive in an AI World?</a></p>
-                    <p><a href="#">How Schools Balance Technology and Human Connection</a></p>
+                    <p>"Accepting AI without addressing the major human concerns would be like summoning the devils," warn the researchers. Their findings paint a concerning picture of technology's unintended consequences in educational settings.</p>
                 </div>
             </div>
-        </main>
+            
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">1</div>
+                    <h2>The Laziness Factor</h2>
+                </div>
+                <div class="section-content">
+                            <img src="https://www.devere-group.com/wp-content/uploads/2024/09/efficient-ai-robot-working-and-lazy-employees-1200x900.jpg" alt="Students using AI technology in a classroom" class="article-img">
+
+                    <p>The detail that was most surprising from the study was that nearly 69% of student laziness could be attributed to AI's use. As the technology automated tasks that once required some form of mental effort, students became increasingly dependent on digital tools rather than their own capabilities. They sought out shortcuts in their work, not building up necessary skills to complete assignments without digital tools.</p>
+                    
+                    <p>"It leads to an addiction behavior not to use human capabilities, thus making humans lazy," the study states. Further reading clarifies, "Teachers and students who use AI technology will slowly and gradually lose interest in doing tasks themselves."</p>
+                    
+                    <p>This effect was consistent across both countries studied, showing no significant differences between male and female students, suggesting that the phenomenon goes beyond cultural and gender boundaries.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">2</div>
+                    <h2>Decision-Making Decline</h2>
+                </div>
+                <div class="section-content">
+                
+                <img src="https://www.brainfacts.org/-/media/Brainfacts2/Neuroscience-in-Society/Tech-and-the-Brain/Article-Images/How-Networks-in-the-Brain-Give-Us-Artificial-Intelligence.jpg" class="article-img">
+                    <p>The study found that for every unit increase in artificial intelligence use, human decision-making capabilities decreased by 0.277 units. While this impact may seem less dramatic than the laziness effect, it still raises important questions about the long-term effects of technology on cognitive development.</p>
+                    
+                    <p>"AI limits and replaces the human role in decision-making," the researchers explain. "Human mental capabilities like intuitive analysis, critical thinking, and creative problem-solving are getting out of decision-making."</p>
+                    
+                    <div class="pullquote">
+                        "AI performs repetitive tasks in an automated manner and does not let humans memorize, use analytical mind skills, or use cognition."
+                    </div>
+                    
+                    <p>This erosion of decision-making skills is particularly concerning in educational contexts, where developing independent thinking is a primary goal. With AI spreading across various industries in such a short period of time, it may lead to a complete system collapse. Many argue that the American school system is already systematically flawed—less effective than other global education models. Adding AI to the mix could make the system nearly pointless. If students can cheat on every assignment, what's the purpose of school? Methods of cheating evolve, and soon, a student who barely understands the subject could be passing alongside those who genuinely put in the effort.</p>
+                    
+                    <p>AI in education is only going to create a chain reaction of problems. From one stems another, and another. Yes, it's useful, but at what point is AI being used too much? This question isn't just for students—it's for teachers as well. Educators can use AI to generate lesson plans, slideshows, assignments, and more. AI may allow a student to cheat, but it also affects the very structure of the classroom itself.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">3</div>
+                    <h2>Privacy at Risk</h2>
+                </div>
+                <div class="section-content">
+                <img src="https://blogs.idc.com/wp-content/uploads/2023/05/Generative-AI-Mitigating-Potental-Risk-Blog-Header-1.png" class="article-img">
+                    <p>Another alarming detail from the study is that AI use led to a 0.686 unit increase in security and privacy issues. Educational institutions collect vast amounts of sensitive student data, from health records to payment information, all of which becomes vulnerable when AI systems are implemented without proper safeguards.</p>
+                    
+                    <p>"Digital security is the most significant risk and ethical concern of using AI in education systems, where criminals hack machines and sell data for other purposes," the researchers explain.</p>
+                    
+                    <p>The study points to incidents like the Facebook-Cambridge Analytica scandal as examples of how data collected through technology remains vulnerable to privacy breaches. Since the early 2000s, digital security has been a requirement for educational institutions, and concerns have only grown. As AI expands, it draws a bigger target for hackers. If a school relies on a single AI system for all important matters, then a hacker only needs to access that one system to obtain vast amounts of private data—compromising both faculty and students.</p>
+                    
+                    <p>We are in a digital age where nearly everything is affected by the internet. Your actions online have consequences, just as they do in real life. Basic internet safety is crucial. For some, a hacked account could mean the end of a career. For others, it could have even more severe repercussions. If you take nothing else from this article, remember to be cautious about what information you put online. Everyone is watching, and hackers are ready to take advantage—no matter how insignificant you think you are.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">4</div>
+                    <h2>Finding Balance</h2>
+                </div>
+                <div class="section-content">
+                <img src="https://imageio.forbes.com/specials-images/imageserve/668d8d37766acd2d7dc881c2//960x0.jpg?height=399&width=711&fit=bounds" class="article-img">
+                    <p>As we conclude, it's important to note that the researchers aren't suggesting we abandon AI in education. Rather, they recommend a more balanced approach that preserves human capabilities while leveraging technological benefits.</p>
+                    
+                    <p>"AI technology has undoubtedly transformed or at least affected many fields," they acknowledge. "Its applications have been developed for the benefit of humankind."</p>
+                    
+                    <p>The study recommends that AI designers prioritize minimizing ethical concerns, that educational institutions implement secure algorithms, and that bias in AI is reduced. Most importantly, they suggest limiting dependency on AI for decision-making to protect human cognitive abilities.</p>
+                    
+                    <p>"Teachers and students should be given training before using AI technology," the researchers conclude, presenting the idea that proper implementation and management should be able to mitigate or completely negate many of the negative effects identified.</p>
+                    
+                    <p>As educational institutions increasingly welcome AI technologies, this research serves as a timely reminder that innovation must be balanced with careful consideration of its impact. The challenge for educators will be to truly harness AI's benefits while protecting the very foundations of human capabilities that education has long been known to develop.</p>
+                </div>
+            </div>
+            
+            <div class="tags">
+                <a href="#" class="tag">Artificial Intelligence</a>
+                <a href="#" class="tag">Education Technology</a>
+                <a href="#" class="tag">Student Privacy</a>
+                <a href="#" class="tag">Digital Learning</a>
+                <a href="#" class="tag">Research</a>
+            </div>
+            
+            <div class="author-box">
+                <img src="https://codehs.com/uploads/c992f9b375ef2fd3da6f20b6b8bdb249" alt="Author" class="author-img">
+                <div class="author-info">
+                    <h3>Jaquan Perry</h3>
+                    <p>Jaquan Perry is an education technology reporter for Education Week. He covers the intersection of technology and learning, with a focus on how digital tools are changing education.</p>
+                    <a href="#" class="read-more">View all articles by this author →</a>
+                </div>
+            </div>
+            
+            <div class="related-articles">
+                <h3>Related Articles</h3>
+                <div class="related-grid">
+                    <div class="related-article">
+                        <img src="https://epe.brightspotcdn.com/6a/78/c94d483c4c5986a30796357cbb07/chatgpt-042024-1483272785.jpg" alt="Teacher with students">
+                        <div class="related-article-content">
+                            <h4>How Teachers Can Detect AI-Generated Student Work</h4>
+                            <p>New tools and strategies to identify when students use AI for assignments.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="related-article">
+                        <img src="https://d3eizkexujvlb4.cloudfront.net/2024/02/22202459/Artificial-Intelligence-for-Students-with-Disabilities.png" alt="Student using tablet">
+                        <div class="related-article-content">
+                            <h4>The Benefits of AI in Special Education Classrooms</h4>
+                            <p>How artificial intelligence is helping students with learning differences.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="related-article">
+                        <img src="https://erepublic.brightspotcdn.com/dims4/default/65acec7/2147483647/strip/true/crop/1000x521+0+73/resize/840x438!/quality/90/?url=http%3A%2F%2Ferepublic-brightspot.s3.us-west-2.amazonaws.com%2Fc1%2Fda%2Fc251b8c84c7897d7d751269e7c55%2Fai-question.jpg" alt="School administrator">
+                        <div class="related-article-content">
+                            <h4>10 Questions School Leaders Should Ask Before Adopting AI</h4>
+                            <p>A framework for evaluating artificial intelligence tools in education.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comments-section">
+                <h3>Join the Conversation</h3>
+                <div class="comment-form">
+                    <textarea placeholder="Share your thoughts..." class="comment-textarea"></textarea>
+                    <button class="comment-button">Post Comment</button>
+                </div>
+            </div>
+        </div>
         
-        <footer>
-            <p>© 2025 The New York Times Company</p>
-            <p>North Iberville High School English 2000</p>
-        </footer>
+        <div class="right-sidebar">
+            <div class="sidebar-card">
+                <img src="https://images.squarespace-cdn.com/content/v1/54807be6e4b053bc20c8b2a0/1690231018246-XCWT89FW86K2QFIJ6Z0Q/AI+Tools+for+Teachers+blog+-+Vivify+STEM.png" alt="AI classroom tools">
+                <div class="sidebar-card-content">
+                    <h3>Top 10 AI Tools for Educators in 2025</h3>
+                    <p>Discover the most effective AI applications that are transforming teaching and learning.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+            
+            <div class="sidebar-card">
+                <img src="https://www.globalsign.com/application/files/2516/9410/0848/8_Generative_AI_Security_Risks_GlobalSign.jpg" alt="Student data privacy">
+                <div class="sidebar-card-content">
+                    <h3>Protecting Student Data in the AI Era</h3>
+                    <p>How schools can safeguard sensitive information while embracing new technologies.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+            
+            <div class="trending-section">
+                <h3>Most Read</h3>
+                <div class="trending-item">
+                    <img src="https://epe.brightspotcdn.com/ab/84/a064accb446d8f981c6dba59ab0f/ai-policy-confusion.png" alt="School board meeting">
+                    <div class="trending-item-content">
+                        <h4>School Districts Face New AI Policy Challenges</h4>
+                        <p>1 week ago</p>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <img src="https://epe.brightspotcdn.com/15/8d/3f24eb114899af5e7f75721aec41/050423-edtech-teacher-pd-fs-langreo.jpg" alt="Teacher training">
+                    <div class="trending-item-content">
+                        <h4>Teacher Training Programs Lag Behind AI Advances</h4>
+                        <p>2 weeks ago</p>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <img src="https://acmwebvm01.acm.org/system/assets/0004/5297/041423_Glenn_Harvey_Chatgpt.large.gif?1681495298&1681495297" alt="Student using AI">
+                    <div class="trending-item-content">
+                        <h4>Students Report Mixed Feelings About AI in the Classroom</h4>
+                        <p>2 weeks ago</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-card">
+                <img src="https://pbs.twimg.com/media/Gkz0W2oXQAAIBKv.jpg" alt="Education conference">
+                <div class="sidebar-card-content">
+                    <h3>Education Week Leadership Symposium</h3>
+                    <p>Join education leaders discussing the future of learning in the age of AI.</p>
+                    <a href="#" class="read-more">Register Now →</a>
+                </div>
+            </div>
+        </div>
     </div>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            const navLeft = document.querySelector('.nav-left');
-            
-            menuBtn.addEventListener('click', function() {
-                navLeft.classList.toggle('show');
-            });
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>About Us</h4>
+                <ul class="footer-links">
+                    <li><a href="#">About Education Week</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Staff</a></li>
+                    <li><a href="#">Work at Education Week</a></li>
+                    <li><a href="#">Advertise</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Content</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Key Topics</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Newsletters</a></li>
+                    <li><a href="#">Videos</a></li>
+                    <li><a href="#">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Subscriptions</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Subscribe</a></li>
+                    <li><a href="#">Group Subscription</a></li>
+                    <li><a href="#">Manage Account</a></li>
+                    <li><a href="#">Reset Password</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Policies</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Reprints</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Education Week. All rights reserved.</p>
+        </div>
+    </footer>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
         });
-    </script>
+    });
+</script>
 </body>
 </html>
